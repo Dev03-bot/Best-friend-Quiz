@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Friend Quiz</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ff99cc, #ff66b2, #ff3399);
+      color: white;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* hearts बाहर न जाएं */
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 40px;
+      text-shadow: 0 0 20px #fff, 0 0 40px #ff3399;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      background: #fff;
+      color: #ff3399;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff3399;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #fff;
+      font-size: 25px;
+      animation: floatUp 6s linear forwards;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div id="page1" class="page active">
+    <h2>💖 Welcome My Bestie 💖</h2>
+    <p>Ready for this Quiz?</p>
+    <button onclick="nextPage('page2')">Start ✨</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div id="page2" class="page">
+    <h2>Q1: Your Favorite Color? 🎨</h2>
+    <button onclick="nextPage('page3')">Pink 🌸</button>
+    <button onclick="nextPage('page3')">Blue 💙</button>
+    <button onclick="nextPage('page3')">Sky Blue 🩵</button>
+    <button onclick="nextPage('page3')">Red 🌹</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div id="page3" class="page">
+    <h2>Q2: Our Favorite Hangout Spot? 🏞️</h2>
+    <button onclick="nextPage('page4')">Cafe ☕</button>
+    <button onclick="nextPage('page4')">Park 🌳</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div id="page4" class="page">
+    <h2>Q3: Who is the funniest? 😄</h2>
+    <button onclick="nextPage('page5')">Me 😎</button>
+    <button onclick="nextPage('page5')">You 😂</button>
+    <button onclick="nextPage('page5')">Both 🤞</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div id="page5" class="page">
+    <h2>Q4: Where did you meet him for the first time?</h2>
+    <button onclick="nextPage('page6')">Cafe ☕</button>
+    <button onclick="nextPage('page6')">Park 🌳</button>
+    <button onclick="nextPage('page6')">School 🏫</button>
+    <button onclick="nextPage('page6')">College 🎓</button>
+    <button onclick="nextPage('page6')">Online Platform 👨‍💻</button>
+    <button onclick="nextPage('page6')">Tourist place 🌏</button>
+  </div>
+
+  <!-- Page 6 -->
+  <div id="page6" class="page">
+    <h2>Q5: Our First Meet Date? 📅</h2>
+    <input type="text" id="meetDate" placeholder="Type the date here 💖"
+           style="padding:10px; border-radius:10px; border:none; font-size:16px; color:#ff3399;">
+    <br><br>
+    <button onclick="nextPage('page7')">Next ➡️</button>
+  </div>
+
+  <!-- Page 7 -->
+  <div id="page7" class="page">
+    <h2>Q6: Our Best Memory Together? 🌟</h2>
+    <input type="text" id="bestMemory" placeholder="Write your memory 🥰"
+           style="padding:10px; border-radius:10px; border:none; font-size:16px; color:#ff3399;">
+    <br><br>
+    <button onclick="nextPage('page8')">Next ➡️</button>
+  </div>
+
+  <!-- Page 8 -->
+  <div id="page8" class="page">
+    <h2>Q7: Which song reminds us of each other? 🎶</h2>
+    <input type="text" id="favSong" placeholder="Type your favorite song 🎤"
+           style="padding:10px; border-radius:10px; border:none; font-size:16px; color:#ff3399;">
+    <br><br>
+    <button onclick="nextPage('page9')">Next ➡️</button>
+  </div>
+
+  <!-- Page 9 -->
+  <div id="page9" class="page">
+    <h2>Q8: Who says “Sorry” first after fight? 🤔</h2>
+    <button onclick="nextPage('page10')">Me 🙈</button>
+    <button onclick="nextPage('page10')">You 😘</button>
+  </div>
+
+  <!-- Final Page -->
+  <div id="page10" class="page">
+    <h2>🎉 OMG! 🎉</h2>
+    <p>You’re not just my Best Friend… You’re my <b>Forever Person 💕</b></p>
+    <p>✨ Thank you for being YOU ✨</p>
+  </div>
+
+  <!-- Static hearts -->
+  <div class="heart" style="left:10%;">💖</div>
+  <div class="heart" style="left:30%;">💕</div>
+  <div class="heart" style="left:50%;">💞</div>
+  <div class="heart" style="left:70%;">💘</div>
+  <div class="heart" style="left:90%;">❤️</div>
+
+  <script>
+    // Page navigation
+    function nextPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // Floating hearts generator
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖"; // You can change to 💕 💞 💘 ❤️
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 6000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
