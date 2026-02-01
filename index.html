@@ -14,7 +14,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden; /* hearts बाहर न जाएं */
+      overflow: hidden;
     }
 
     .page {
@@ -153,13 +153,50 @@
     <button onclick="nextPage('page10')">Me 🙈</button>
     <button onclick="nextPage('page10')">You 😘</button>
   </div>
+  
+<!-- Final Page -->
+<div id="page10" class="page">
+  <h2>🎉 OMG! 🎉</h2>
+  <p>You’re not just my Best Friend… You’re my <b>Forever Person 💕</b></p>
+  <p>✨ Thank you for being YOU ✨</p>
+  <button onclick="showEnvelope()">Open Your Gift 💌</button>
+</div> 
 
-  <!-- Final Page -->
-  <div id="page10" class="page">
-    <h2>🎉 OMG! 🎉</h2>
-    <p>You’re not just my Best Friend… You’re my <b>Forever Person 💕</b></p>
-    <p>✨ Thank you for being YOU ✨</p>
+ <!-- Surprise Envelope -->
+  <div id="envelope" onclick="openLetter()" 
+       style="font-size:80px; cursor:pointer; text-align:center; display:none;">
+    ✉️
+    <p style="font-size:16px;">Tap to open your surprise!</p>
   </div>
+
+  <!-- Surprise Letter -->
+  <div id="letter" style="display:none; 
+       padding:20px; margin:20px auto; width:80%; 
+       border:2px solid #ccc; background:#fff; 
+       box-shadow:0 0 15px rgba(0,0,0,0.3); 
+       font-family:'Comic Sans MS', cursive; 
+       animation: slideUp 1s ease; color:#000;">
+    <h2>💌 Dear Bestie</h2>
+    <p>Tumne quiz complete kar liya! Ye chhota sa gift tumhare liye hai…
+        Oye Adduu 💖, 
+Sach bola taa tusi meri life da sab too special part ho g..  
+Har din tuhda nal kiti baatein, masti, aur yaadein mere liye ek gift jaisi hain.  
+Tu meri smile ki wajah hai, aur meri har story ka best chapter bhi.  
+
+Bas yehi kehna tha ki tusi meri forever and lifetime best part and best too bhi
+ best raho ga ga💕 g baki sorry g haa thoda ja gussa vala ha yr but haa taa tera hi 
+ haa maff kar daya karo, but mai vi ki kara g tusi kada kada gussa hi chada dana ho g,
+  i am really sorry g mera oss beahviour layi g, ohh madam ki pata ha mno bola ga tusi 
+  hoon so eh choclatete khao taa set ho jao g smile kar kaa
+ Aur mujhe hope hai ki ye surprise dekh ke tuhda face pe ek badi wali smile aa gayi hoya gi 😊  
+
+– Tuhda DEV 💌
+    </p>
+    <p>I am only for you 💕 </p>
+    <p>Tum meri life da sabse special ho  💖</p>
+    <p><i>Hope this surprise made you smile 😊</i></p>
+  </div>
+
 
   <!-- Static hearts -->
   <div class="heart" style="left:10%;">💖</div>
@@ -173,7 +210,17 @@
     function nextPage(id) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-    }
+     }
+
+  // Envelope + Letter
+  function showEnvelope() {
+    document.getElementById("envelope").style.display = "block";
+  }
+  function openLetter() {
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+  }
+
 
     // Floating hearts generator
     function createHeart() {
